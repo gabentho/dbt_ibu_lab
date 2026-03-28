@@ -48,7 +48,7 @@ for sql in steps:
 print(f"Uploading {csv_path}...")
 cur.execute(f"USE DATABASE {database}")
 cur.execute(f"USE SCHEMA {schema}")
-cur.execute(f"PUT file://{csv_path} @biathlon_stage AUTO_COMPRESS=TRUE OVERWRITE=TRUE")
+cur.execute(f"PUT 'file://{csv_path}' @biathlon_stage AUTO_COMPRESS=TRUE OVERWRITE=TRUE")
 print("  Upload done.")
 
 print("Loading data...")

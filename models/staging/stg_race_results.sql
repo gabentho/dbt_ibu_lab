@@ -6,7 +6,7 @@ SELECT
     level,
     raceid AS race_id,
     racedescription AS race_description,
-    km AS km,
+    km::FLOAT AS km,          -- ← cast ajouté
     catid AS cat_id,
     disciplineid AS discipline_id,
     starttime AS start_time,
@@ -37,3 +37,4 @@ SELECT
     pursuitstartdistance AS pursuit_start_distance,
     result
 FROM {{ source('raw', 'races_results_raw') }}
+WHERE irm IS NULL             -- ← filtre ajouté
