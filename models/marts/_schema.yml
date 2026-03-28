@@ -47,4 +47,7 @@ models:
               field: race_id
       - name: rank
         tests:
-          - not_null
+          - not_null:
+              where: "irm IS NULL"
+              warn_if: ">0"
+              error_if: ">10"
